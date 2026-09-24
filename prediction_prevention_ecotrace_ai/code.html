@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#00714d", "on-error": "#ffffff", "on-background": "#111c2d", "surface-container": "#e7eeff", "inverse-on-surface": "#ecf1ff", "secondary-fixed": "#6ffbbe", "on-surface": "#111c2d", "tertiary": "#825100", "primary-fixed-dim": "#68dba9", "outline-variant": "#bccac0", "outline": "#6d7a72", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed-variant": "#653e00", "on-tertiary": "#ffffff", "surface-variant": "#d8e3fb", "on-secondary": "#ffffff", "error-container": "#ffdad6", "secondary": "#006c49", "on-secondary-fixed-variant": "#005236", "primary": "#006948", "inverse-primary": "#68dba9", "surface-container-high": "#dee8ff", "tertiary-fixed-dim": "#ffb95f", "secondary-fixed-dim": "#4edea3", "surface-container-lowest": "#ffffff", "on-tertiary-container": "#fffbff", "secondary-container": "#6cf8bb", "surface-container-low": "#f0f3ff", "on-primary-fixed": "#002114", "on-primary-container": "#f5fff7", "surface-dim": "#cfdaf2", "tertiary-container": "#a36700", "on-surface-variant": "#3d4a42", "inverse-surface": "#263143", "surface-container-highest": "#d8e3fb", "surface-bright": "#f9f9ff", "surface-tint": "#006c4a", "on-tertiary-fixed": "#2a1700", "on-secondary-fixed": "#002113", "background": "#f9f9ff", "primary-fixed": "#85f8c4", "on-primary": "#ffffff", "on-error-container": "#93000a", "surface": "#f9f9ff", "on-primary-fixed-variant": "#005137", "primary-container": "#00855d", "error": "#ba1a1a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-desktop": "2.5rem", "space-sm": "0.5rem", "space-xl": "2.5rem", "space-md": "1rem", "gutter-desktop": "1.5rem", "gutter": "1rem", "margin": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "body-sm": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "headline-lg-mobile": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "label-lg": ["JetBrains Mono"], "label-sm": ["JetBrains Mono"], "display-lg": ["Space Grotesk"], "body-md": ["Inter"] }, "fontSize": { "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-margin md:px-margin-desktop"><div class="h-full max-w-6xl mx-auto flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><img alt="EcoTrace AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UZdU2sfG5DGiCz3HSoBAT8cQs9FBo6kecgsmj0DWAgWlqe01nnITTFQHC1V8uyZ4qwwacegtb0NyFPacGP-oFDKaKJKxGeJ4b7W9801Bqh336yxIRJSxdQArfb_5jIR6_l8vW1VAxT33sSuMiu4OXp7ihFviTdTDf-QGVcx6-Y6fs3OS2ej1ENbK-dJXpRn00ILyotXrLJWnOJbLy2JEMIBabBmYipzsj2kVU8jX2JL-bhfqt6aYiWDk8"/><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">EcoTrace AI</span><span class="hidden lg:inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-low font-label-sm text-label-sm text-secondary-container"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Backend: PostgreSQL / SQLite connected</span></div><span class="hidden sm:inline-block font-body-sm text-body-sm text-on-surface-variant">Personal Carbon Intelligence &amp; ML Forecasting</span></div></div><div class="flex items-center gap-space-sm md:gap-space-md"><div class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-label-md text-label-md text-on-surface"><span class="font-body-sm text-body-sm text-on-surface-variant">Logged:</span><span class="font-label-md text-label-md font-bold text-primary">{{days_logged_count}} Days</span></div><div class="hidden xl:flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-tertiary">code</span><span>Developer Spec Mode</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="w-full bg-surface-container-lowest"><div class="max-w-6xl mx-auto px-margin md:px-margin-desktop"><nav class="flex items-center gap-gutter" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a class="py-2.5 px-1 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="log-data" href="#">Log Data</a><a class="py-2.5 px-1 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Dashboard</a><a class="py-2.5 px-1 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="prediction-and-prevention" href="#">Prediction &amp; Prevention</a></nav></div></div></header><main class="w-full pt-20 bg-background"><div class="max-w-6xl mx-auto px-margin md:px-margin-desktop py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Interactive Model Mode & Parameter Toggle Strip (Bench Simulator) -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">vital_signs</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface">Predictive Engine &amp; Prevention Matrix</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-medium">Model: RandomForestRegressor + XGBoost (v1.2.0)</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Calibrated personal carbon forecast using 7-day rolling multi-variate feature regressors</span>
+</div>
+</div>
+<!-- Mode Controller for Simulation / Showcase -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest p-1 rounded-lg shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant px-2 hidden sm:inline">Engine State:</span>
+<button class="px-2.5 py-1 rounded text-label-sm font-label-md font-medium transition-all bg-primary text-on-primary shadow-sm" id="btnStateActiveHigh" onclick="setSimulationState('active-high')">
+        7d+ (High Risk)
+      </button>
+<button class="px-2.5 py-1 rounded text-label-sm font-label-md font-medium transition-all text-on-surface-variant hover:text-on-surface" id="btnStateActiveNormal" onclick="setSimulationState('active-normal')">
+        7d+ (Normal)
+      </button>
+<button class="px-2.5 py-1 rounded text-label-sm font-label-md font-medium transition-all text-on-surface-variant hover:text-on-surface" id="btnStateWarmup" onclick="setSimulationState('warmup')">
+        &lt;7d (Cold Start)
+      </button>
+</div>
+</div>
+<!-- Model Engine Status & Readiness Bar -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" id="engineStatusDot"></span>
+<span class="font-label-md text-label-md font-bold text-on-surface" id="engineStatusTag">Model Active &amp; Validated</span>
+</div>
+<div class="h-4 w-px bg-outline-variant hidden sm:block"></div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span>Loss Function:</span>
+<span class="text-on-surface font-semibold">Huber (δ=1.35)</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant hidden md:flex">
+<span>RMSE:</span>
+<span class="text-on-surface font-semibold">0.42 kg CO2e</span>
+</div>
+</div>
+<!-- Readiness Condition Badge -->
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Training Status:</span>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-primary font-semibold" id="readinessBadge">
+<span class="material-symbols-outlined text-[15px] text-primary" id="readinessIcon">check_circle</span>
+<span id="readinessText">Active • {{days_logged_count}} &gt;= 7 (Data threshold satisfied)</span>
+</div>
+</div>
+</div>
+<!-- Top Forecast Metric Row (Displays either Active State or Cold Start) -->
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-stretch">
+<!-- Left Main Hero Metric Card (8 cols) -->
+<div class="lg:col-span-8 flex flex-col">
+<!-- Active Ready State Container -->
+<div class="w-full h-full bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between gap-space-lg" id="activeMetricState">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface-variant">Predicted Tomorrow</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold">st.metric</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">24-hour forecasted personal carbon equivalent (CO2e)</p>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md font-bold transition-colors" id="riskLevelPill">
+<span class="material-symbols-outlined text-[16px]" id="riskLevelIcon">warning</span>
+<span id="riskLevelText">Risk Level: HIGH</span>
+</div>
+</div>
+<!-- Big Metric Value Cluster -->
+<div class="flex flex-col md:flex-row md:items-baseline gap-space-sm md:gap-space-md">
+<span class="font-label-md text-[44px] md:text-[52px] leading-tight font-bold text-on-surface tracking-tight" id="predictedTotalVal">
+            18.4
+          </span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">kg CO2e</span>
+<div class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant">
+<span>Confidence Interval:</span>
+<span class="font-bold text-on-surface" id="confidenceIntervalText">±1.2 kg</span>
+</div>
+</div>
+<div class="md:ml-auto flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary">analytics</span>
+<span>Target Budget: <strong class="text-on-surface font-label-md">11.5 kg</strong></span>
+</div>
+</div>
+<!-- Metric Trend Sub-Bar with Inline Visual Curve -->
+<div class="pt-space-md bg-surface-container-low/50 rounded-lg p-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-bold bg-error-container text-on-error-container" id="deltaPill">
+              ↑ +60.0% vs Budget
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="deltaPillSub">Projected 6.9 kg excess over baseline</span>
+</div>
+<!-- Micro Sparkline SVG -->
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="hidden sm:inline">7-Day Trajectory:</span>
+<svg class="w-32 h-6 overflow-visible text-primary" fill="none" viewbox="0 0 120 24">
+<path d="M 0 18 Q 20 14, 40 16 T 80 8 T 120 4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<circle class="fill-error stroke-surface-container-lowest" cx="120" cy="4" r="3.5" stroke-width="2"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Cold Start / Insufficient Data State Container (< 7 days) -->
+<div class="hidden w-full h-full bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between gap-space-lg" id="coldStartMetricState">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface-variant">Collecting Data...</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-tertiary font-semibold">Cold Start</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Personalized regressors require minimum daily observation cadence</p>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant font-medium">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span>Calibration Active</span>
+</div>
+</div>
+<!-- Progress block -->
+<div class="flex flex-col gap-space-sm my-auto py-space-md">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">4 / 7 Days Logged</span>
+<span class="text-tertiary font-bold">Need 3 more days to activate ML model inference</span>
+</div>
+<!-- Streamlit Progress representation -->
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden p-0.5">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 57.14%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Minimum sample size: 7 diurnal logs</span>
+<span>Estimated completion: 3 days</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center gap-space-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px]">info</span>
+<span class="font-body-sm text-body-sm">Currently referencing regional IPCC AR6 averages as placeholder inference prior to personal calibration.</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Model Environmental Calibration Card (4 cols) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Inference Context</span>
+<span class="material-symbols-outlined text-[18px] text-primary">model_training</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Boundary Controls</h3>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Parameter tile 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Budget Cutoff (θ)</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">11.5 kg CO2e / day</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">tune</span>
+</div>
+<!-- Parameter tile 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Primary Regressor</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">XGBoost DMatrix v1.2</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">memory</span>
+</div>
+<!-- Parameter tile 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Weather Forecast Factor</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Cold Spell (+2.1 kWh HVAC)</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">thermostat</span>
+</div>
+</div>
+<div class="pt-space-xs flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span>Verified against IPCC Tier-1 Methodology</span>
+</div>
+</div>
+</div>
+<!-- Prevention Report Container (st.container()) -->
+<div class="w-full flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">shield_with_heart</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Adaptive Prevention Protocol</h2>
+</div>
+<span class="px-2.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-medium">st.container(predictive_actions)</span>
+</div>
+<!-- Branch A: High Emission Triggered State (If predicted_total > emission_threshold) -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg transition-all duration-300" id="branchHighEmission">
+<!-- High Alert Banner -->
+<div class="w-full rounded-xl bg-error-container p-space-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-on-error flex items-center justify-center text-error flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-error-container">
+              High Emission Day Predicted for Tomorrow!
+            </span>
+<span class="font-body-sm text-body-sm text-on-error-container/80">
+              Threshold breach triggered: Forecasted 18.4 kg exceeds sustainability cap of 11.5 kg by +60%
+            </span>
+</div>
+</div>
+<div class="px-3 py-1 rounded-full bg-on-error/20 font-label-md text-label-md text-on-error-container font-bold whitespace-nowrap self-end sm:self-auto">
+          ACTION TRIGGERED
+        </div>
+</div>
+<!-- Variable Badges & Breakdown Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Biggest Contributor Badge Box -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Biggest Contributor</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">directions_car</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Gasoline Car Commute</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">62% of predicted footprint (~11.4 kg)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Scheduled 38-km highway round trip during peak congestion.</p>
+</div>
+<!-- Suggested Action Box -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Suggested Action</span>
+<span class="material-symbols-outlined text-primary text-[20px]">directions_subway</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Transit / Carpool Switch</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Optimal alternative trajectory</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Switch commute to Public Transit or Carpool tomorrow to stay under daily target.</p>
+</div>
+<!-- Projected Savings Box -->
+<div class="bg-primary/10 rounded-xl p-space-md flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Projected Savings</span>
+<span class="material-symbols-outlined text-primary text-[20px]">eco</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-md text-[32px] leading-tight font-bold text-primary">8.6 kg CO2e</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Emission avoided if committed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Restores tomorrow's expected footprint to 9.8 kg (Safely below 11.5 kg budget).</p>
+</div>
+</div>
+<!-- Action Footer with Interactive Button & Flag Representation -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary">published_with_changes</span>
+<span id="commitmentStatusText">Status: <strong class="text-on-surface">user_commitment_flag = False</strong></span>
+</div>
+<button class="px-6 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-body-md text-body-md font-semibold transition-all shadow-md flex items-center justify-center gap-2 active:scale-95" id="commitActionBtn" onclick="toggleCommitment()">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span id="commitActionLabel">Commit to Alternative Action</span>
+</button>
+</div>
+</div>
+<!-- Branch B: Normal / Neutral Safe State (If predicted_total <= emission_threshold) -->
+<div class="hidden w-full bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md transition-all duration-300" id="branchNormalEmission">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md bg-secondary-container/20 p-space-md rounded-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[28px]">verified</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">You're on track — no high-emission day predicted</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-label-sm text-label-sm text-secondary font-bold">BUDGET SAFE</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+              Projected emissions for tomorrow (<strong class="text-on-surface font-label-md">8.4 kg CO2e</strong>) are well within your daily sustainable budget (<strong class="text-on-surface font-label-md">11.5 kg CO2e</strong>). No active intervention required.
+            </p>
+</div>
+</div>
+<div class="flex flex-col items-start md:items-end flex-shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Headroom</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">3.1 kg Surplus</span>
+</div>
+</div>
+<!-- Detail Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter pt-space-xs">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Scheduled Commute</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Bicycle / Remote Telework</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Zero direct tailpipe impact</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Home Energy Forecast</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Standard Solar Grid Offset</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Expected 4.2 kWh consumption</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Weekly Milestone</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Streak: 5 Safe Days</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">On pace for Paris 1.5° alignment</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Feature Importance & ML Explainability Drawer (st.expander("SHAP Feature Importance & Model Weights")) -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-300">
+<!-- Expander Header -->
+<button class="w-full px-space-lg py-space-md flex items-center justify-between bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors text-left focus:outline-none" onclick="toggleExpander()">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">
+            SHAP Feature Importance &amp; Model Weights
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+            st.expander • TreeExplainer Multi-Output Attribution Analysis
+          </span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant">
+<span class="font-label-sm text-label-sm hidden sm:inline" id="expanderStatus">Click to collapse</span>
+<span class="material-symbols-outlined transition-transform duration-200" id="expanderChevron">expand_more</span>
+</div>
+</button>
+<!-- Expander Body Content -->
+<div class="px-space-lg pb-space-lg pt-space-xs flex flex-col gap-space-lg" id="expanderBody">
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>Global mean absolute SHAP value impact across 48 observed iterations:</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Base Value E[f(x)] = 10.9 kg</span>
+</div>
+<!-- Feature Bars List -->
+<div class="flex flex-col gap-space-md">
+<!-- Factor 1: Historical Commute Routine -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">Historical Commute Routine</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">({{shap_commute_weight}} = 0.54)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-error font-semibold">+5.8 kg contribution</span>
+<span class="font-bold text-on-surface">54.0%</span>
+</div>
+</div>
+<!-- Visual SHAP bar -->
+<div class="w-full bg-surface-container-low h-3.5 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full rounded-full transition-all duration-700" style="width: 54%;"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Highway vehicle miles travelled (VMT) derived from Wednesday recurring routine.</span>
+</div>
+<!-- Factor 2: Day of Week / Weekend Pattern -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">Day of Week / Weekend Schedule</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">({{shap_dow_weight}} = 0.28)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">+2.9 kg contribution</span>
+<span class="font-bold text-on-surface">28.0%</span>
+</div>
+</div>
+<!-- Visual SHAP bar -->
+<div class="w-full bg-surface-container-low h-3.5 rounded-full overflow-hidden flex">
+<div class="bg-tertiary h-full rounded-full transition-all duration-700" style="width: 28%;"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Midweek in-office attendance probability based on historical log markers.</span>
+</div>
+<!-- Factor 3: Seasonal & Meteorological Factors -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">Seasonal &amp; Weather Factors</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">({{shap_weather_weight}} = 0.18)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">+1.9 kg contribution</span>
+<span class="font-bold text-on-surface">18.0%</span>
+</div>
+</div>
+<!-- Visual SHAP bar -->
+<div class="w-full bg-surface-container-low h-3.5 rounded-full overflow-hidden flex">
+<div class="bg-outline h-full rounded-full transition-all duration-700" style="width: 18%;"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Temperature delta: Heating degree days trigger higher baseline residential grid draws.</span>
+</div>
+</div>
+<!-- Feature Explainability Callout footer -->
+<div class="pt-space-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm bg-surface-container-low p-space-md rounded-lg">
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary">data_object</span>
+<span>Additive SHAP formulation: f(x) = E[f(x)] + ∑ Φ<sub>i</sub>(x)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+          Regenerated automatically every 24h
+        </span>
+</div>
+</div>
+</div>
+</div>
+<!-- State Management & Micro-Interactions Script -->
+<script>
+  let isCommitted = false;
+  let isExpanderOpen = true;
+
+  function toggleCommitment() {
+    isCommitted = !isCommitted;
+    const btn = document.getElementById('commitActionBtn');
+    const label = document.getElementById('commitActionLabel');
+    const statusText = document.getElementById('commitmentStatusText');
+
+    if (isCommitted) {
+      btn.classList.remove('bg-primary', 'hover:bg-primary-container');
+      btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+      label.textContent = "Action Committed (user_commitment_flag = True)";
+      statusText.innerHTML = 'Status: <strong class="text-primary font-bold">user_commitment_flag = True (Saved -8.6 kg)</strong>';
+    } else {
+      btn.classList.add('bg-primary', 'hover:bg-primary-container');
+      btn.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+      label.textContent = "Commit to Alternative Action";
+      statusText.innerHTML = 'Status: <strong class="text-on-surface">user_commitment_flag = False</strong>';
+    }
+  }
+
+  function toggleExpander() {
+    const body = document.getElementById('expanderBody');
+    const chevron = document.getElementById('expanderChevron');
+    const status = document.getElementById('expanderStatus');
+
+    isExpanderOpen = !isExpanderOpen;
+    if (isExpanderOpen) {
+      body.classList.remove('hidden');
+      chevron.style.transform = 'rotate(0deg)';
+      status.textContent = 'Click to collapse';
+    } else {
+      body.classList.add('hidden');
+      chevron.style.transform = 'rotate(180deg)';
+      status.textContent = 'Click to expand';
+    }
+  }
+
+  function setSimulationState(mode) {
+    // Buttons styling reset
+    const btnHigh = document.getElementById('btnStateActiveHigh');
+    const btnNormal = document.getElementById('btnStateActiveNormal');
+    const btnWarmup = document.getElementById('btnStateWarmup');
+
+    [btnHigh, btnNormal, btnWarmup].forEach(b => {
+      b.className = "px-2.5 py-1 rounded text-label-sm font-label-md font-medium transition-all text-on-surface-variant hover:text-on-surface";
+    });
+
+    const activeMetric = document.getElementById('activeMetricState');
+    const coldStartMetric = document.getElementById('coldStartMetricState');
+    const branchHigh = document.getElementById('branchHighEmission');
+    const branchNormal = document.getElementById('branchNormalEmission');
+    const engineDot = document.getElementById('engineStatusDot');
+    const engineTag = document.getElementById('engineStatusTag');
+    const readinessBadge = document.getElementById('readinessBadge');
+    const readinessText = document.getElementById('readinessText');
+    const readinessIcon = document.getElementById('readinessIcon');
+
+    if (mode === 'active-high') {
+      btnHigh.className = "px-2.5 py-1 rounded text-label-sm font-label-md font-medium transition-all bg-primary text-on-primary shadow-sm";
+      activeMetric.classList.remove('hidden');
+      coldStartMetric.classList.add('hidden');
+      branchHigh.classList.remove('hidden');
+      branchNormal.classList.add('hidden');
+
+      // Forecast Metric High values
+      document.getElementById('predictedTotalVal').textContent = '18.4';
+      document.getElementById('confidenceIntervalText').textContent = '±1.2 kg';
+      document.getElementById('riskLevelPill').className = "flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md font-bold transition-colors";
+      document.getElementById('riskLevelIcon').textContent = 'warning';
+      document.getElementById('riskLevelText').textContent = 'Risk Level: HIGH';
+      document.getElementById('deltaPill').textContent = '↑ +60.0% vs Budget';
+      document.getElementById('deltaPill').className = "px-2 py-0.5 rounded font-label-sm text-label-sm font-bold bg-error-container text-on-error-container";
+      document.getElementById('deltaPillSub').textContent = 'Projected 6.9 kg excess over baseline';
+
+      // Engine badge
+      engineDot.className = "w-2.5 h-2.5 rounded-full bg-primary animate-pulse";
+      engineTag.textContent = "Model Active & Validated";
+      readinessBadge.className = "flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-primary font-semibold";
+      readinessIcon.textContent = "check_circle";
+      readinessText.innerHTML = "Active &bull; 14 Days Logged (&gt;= 7)";
+    } 
+    else if (mode === 'active-normal') {
+      btnNormal.className = "px-2.5 py-1 rounded text-label-sm font-label-md font-medium transition-all bg-primary text-on-primary shadow-sm";
+      activeMetric.classList.remove('hidden');
+      coldStartMetric.classList.add('hidden');
+      branchHigh.classList.add('hidden');
+      branchNormal.classList.remove('hidden');
+
+      // Forecast Metric Normal values
+      document.getElementById('predictedTotalVal').textContent = '8.4';
+      document.getElementById('confidenceIntervalText').textContent = '±0.8 kg';
+      document.getElementById('riskLevelPill').className = "flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold transition-colors";
+      document.getElementById('riskLevelIcon').textContent = 'verified';
+      document.getElementById('riskLevelText').textContent = 'Risk Level: NORMAL';
+      document.getElementById('deltaPill').textContent = '↓ -27.0% vs Budget';
+      document.getElementById('deltaPill').className = "px-2 py-0.5 rounded font-label-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container";
+      document.getElementById('deltaPillSub').textContent = 'Projected 3.1 kg safely under daily cap';
+
+      // Engine badge
+      engineDot.className = "w-2.5 h-2.5 rounded-full bg-primary animate-pulse";
+      engineTag.textContent = "Model Active & Validated";
+      readinessBadge.className = "flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low font-label-sm text-label-sm text-primary font-semibold";
+      readinessIcon.textContent = "check_circle";
+      readinessText.innerHTML = "Active &bull; 14 Days Logged (&gt;= 7)";
+    } 
+    else if (mode === 'warmup') {
+      btnWarmup.className = "px-2.5 py-1 rounded text-label-sm font-label-md font-medium transition-all bg-primary text-on-primary shadow-sm";
+      activeMetric.classList.add('hidden');
+      coldStartMetric.classList.remove('hidden');
+      branchHigh.classList.add('hidden');
+      branchNormal.classList.remove('hidden');
+
+      // Engine badge
+      engineDot.className = "w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse";
+      engineTag.textContent = "Warmup / Calibration Mode";
+      readinessBadge.className = "flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-container/20 font-label-sm text-label-sm text-tertiary font-semibold";
+      readinessIcon.textContent = "hourglass_top";
+      readinessText.innerHTML = "Warmup &bull; 4/7 Days Logged (3 needed)";
+    }
+  }
+</script></div></main><footer class="w-full bg-surface-container-low mt-space-xl py-space-lg"><div class="max-w-6xl mx-auto px-margin md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><span>EcoTrace AI Workbench v2.4 • Calibration Mode</span><span>Verified Emission Factors: IPCC AR6 Standard Database</span></div></footer></body></html>

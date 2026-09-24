@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#00714d", "on-error": "#ffffff", "on-background": "#111c2d", "surface-container": "#e7eeff", "inverse-on-surface": "#ecf1ff", "secondary-fixed": "#6ffbbe", "on-surface": "#111c2d", "tertiary": "#825100", "primary-fixed-dim": "#68dba9", "outline-variant": "#bccac0", "outline": "#6d7a72", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed-variant": "#653e00", "on-tertiary": "#ffffff", "surface-variant": "#d8e3fb", "on-secondary": "#ffffff", "error-container": "#ffdad6", "secondary": "#006c49", "on-secondary-fixed-variant": "#005236", "primary": "#006948", "inverse-primary": "#68dba9", "surface-container-high": "#dee8ff", "tertiary-fixed-dim": "#ffb95f", "secondary-fixed-dim": "#4edea3", "surface-container-lowest": "#ffffff", "on-tertiary-container": "#fffbff", "secondary-container": "#6cf8bb", "surface-container-low": "#f0f3ff", "on-primary-fixed": "#002114", "on-primary-container": "#f5fff7", "surface-dim": "#cfdaf2", "tertiary-container": "#a36700", "on-surface-variant": "#3d4a42", "inverse-surface": "#263143", "surface-container-highest": "#d8e3fb", "surface-bright": "#f9f9ff", "surface-tint": "#006c4a", "on-tertiary-fixed": "#2a1700", "on-secondary-fixed": "#002113", "background": "#f9f9ff", "primary-fixed": "#85f8c4", "on-primary": "#ffffff", "on-error-container": "#93000a", "surface": "#f9f9ff", "on-primary-fixed-variant": "#005137", "primary-container": "#00855d", "error": "#ba1a1a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-desktop": "2.5rem", "space-sm": "0.5rem", "space-xl": "2.5rem", "space-md": "1rem", "gutter-desktop": "1.5rem", "gutter": "1rem", "margin": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "body-sm": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "headline-lg-mobile": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "label-lg": ["JetBrains Mono"], "label-sm": ["JetBrains Mono"], "display-lg": ["Space Grotesk"], "body-md": ["Inter"] }, "fontSize": { "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-margin md:px-margin-desktop"><div class="h-full max-w-6xl mx-auto flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><img alt="EcoTrace AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UZdU2sfG5DGiCz3HSoBAT8cQs9FBo6kecgsmj0DWAgWlqe01nnITTFQHC1V8uyZ4qwwacegtb0NyFPacGP-oFDKaKJKxGeJ4b7W9801Bqh336yxIRJSxdQArfb_5jIR6_l8vW1VAxT33sSuMiu4OXp7ihFviTdTDf-QGVcx6-Y6fs3OS2ej1ENbK-dJXpRn00ILyotXrLJWnOJbLy2JEMIBabBmYipzsj2kVU8jX2JL-bhfqt6aYiWDk8"/><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">EcoTrace AI</span><span class="hidden lg:inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-low font-label-sm text-label-sm text-secondary-container"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Backend: PostgreSQL / SQLite connected</span></div><span class="hidden sm:inline-block font-body-sm text-body-sm text-on-surface-variant">Personal Carbon Intelligence &amp; ML Forecasting</span></div></div><div class="flex items-center gap-space-sm md:gap-space-md"><div class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-label-md text-label-md text-on-surface"><span class="font-body-sm text-body-sm text-on-surface-variant">Logged:</span><span class="font-label-md text-label-md font-bold text-primary">{{days_logged_count}} Days</span></div><div class="hidden xl:flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-tertiary">code</span><span>Developer Spec Mode</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="w-full bg-surface-container-lowest"><div class="max-w-6xl mx-auto px-margin md:px-margin-desktop"><nav class="flex items-center gap-gutter" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a aria-current="page" class="py-2.5 px-1 transition-colors text-primary font-semibold border-b-2 border-primary" data-path="log-data" href="#">Log Data</a><a class="py-2.5 px-1 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Dashboard</a><a class="py-2.5 px-1 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="prediction-and-prevention" href="#">Prediction &amp; Prevention</a></nav></div></div></header><main class="w-full pt-20 bg-background"><div class="max-w-6xl mx-auto px-margin md:px-margin-desktop py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Top Header Banner & Telemetry Counter -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest shadow-sm p-space-md md:p-space-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1.5 z-10">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-surface-container text-on-secondary-container font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          STATE: PERSISTENT SESSION
+        </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm tracking-wider uppercase">DB Query Binding</span>
+</div>
+<div class="flex items-baseline gap-3">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight" id="logged-days-display">
+          {{days_logged_count}} <span class="font-headline-sm text-headline-sm text-on-surface-variant font-normal">Days Logged</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">database</span>
+<code>SELECT COUNT(*) FROM logs WHERE user_id = :uid</code>
+<span class="text-on-surface-variant/60">• Updates reactively on submission</span>
+</p>
+</div>
+<!-- Conditional Onboarding / Level Badge -->
+<div class="flex flex-col items-start md:items-end gap-1.5 z-10 w-full md:w-auto">
+<div class="w-full md:w-auto p-3 rounded-lg bg-surface-container-low flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 mt-0.5">stars</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-semibold">Cold Start Heuristic</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+            If <code class="font-label-sm text-label-sm font-semibold bg-surface-container px-1 py-0.5 rounded">{{days_logged_count}} == 0</code>: 
+            <span class="text-secondary font-medium">"Welcome! Log your first day to unlock ML predictions"</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Subtle Environmental Backdrop Graphic -->
+<div class="absolute right-0 bottom-0 pointer-events-none opacity-5 translate-x-8 translate-y-4">
+<svg fill="none" height="120" viewbox="0 0 200 100" width="220" xmlns="http://www.w3.org/2000/svg">
+<path class="text-primary" d="M10 90 Q 60 10 110 90 T 210 90" stroke="currentColor" stroke-width="8"></path>
+<path class="text-secondary" d="M30 90 Q 80 30 130 90 T 230 90" stroke="currentColor" stroke-width="4"></path>
+</svg>
+</div>
+</div>
+<!-- Main Activity Form Container (Streamlit st.form simulator) -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<!-- Visual Accent Top Bar -->
+<div class="h-1.5 w-full bg-gradient-to-r from-primary via-primary-container to-secondary-fixed-dim"></div>
+<div class="p-space-md md:p-space-lg flex flex-col gap-space-lg">
+<!-- Form Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">edit_calendar</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Daily Activity Logger</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Target Record Window: <span class="font-label-md text-label-md text-on-surface font-semibold bg-surface-container-low px-1.5 py-0.5 rounded">{{current_date}}</span> • 
+            <code class="font-label-sm text-label-sm text-on-surface-variant">st.form("daily_emission_form", clear_on_submit=False)</code>
+</p>
+</div>
+<span class="self-start sm:self-auto inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Input Mode: Synchronous Stream
+        </span>
+</div>
+<!-- Activity Simulation Live Preview Bar -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex flex-col px-3 py-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Est. Mobility Impact</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface" id="stat-commute">0.00 kg CO2e</span>
+</div>
+<div class="flex flex-col px-3 py-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Est. Diet Carbon Load</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface" id="stat-diet">1.40 kg CO2e</span>
+</div>
+<div class="flex flex-col px-3 py-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Est. Screen Wattage</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface" id="stat-screen">0.14 kg CO2e</span>
+</div>
+<div class="flex flex-col px-3 py-1 bg-surface-container-lowest rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-primary uppercase font-semibold">Aggregate Computed</span>
+<span class="font-label-lg text-label-lg font-bold text-primary" id="stat-total">1.54 kg CO2e</span>
+</div>
+</div>
+<!-- Form Columns Container (st.columns(2)) -->
+<form class="flex flex-col gap-space-lg" id="daily-logger-form" onsubmit="event.preventDefault(); window.handleLogSubmission();">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- Field 1: Commute Distance -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5" for="commute_distance">
+<span class="material-symbols-outlined text-[18px] text-primary">distance</span>
+                Commute Distance (km)
+              </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step: 0.5 km</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-11 px-3.5 bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-label-lg text-label-lg rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary" id="commute_distance" min="0.0" name="commute_distance" oninput="window.recomputeLive()" placeholder="{{commute_distance_km}}" step="0.5" type="number" value="12.5"/>
+<span class="absolute right-3.5 font-label-md text-label-md text-on-surface-variant uppercase pointer-events-none">KM</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">info</span> Total travel to/from work or errands today
+            </span>
+</div>
+<!-- Field 2: Commute Mode -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5" for="commute_mode">
+<span class="material-symbols-outlined text-[18px] text-primary">directions_transit</span>
+                Commute Mode
+              </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">EF Tier AR6</span>
+</div>
+<div class="relative">
+<select class="w-full h-11 px-3.5 pr-10 bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg appearance-none transition-colors focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="commute_mode" name="commute_mode" onchange="window.recomputeLive()">
+<option value="bike">Bike / Walk (0.00 kg/km)</option>
+<option value="transit">Public Transit [Bus/Train] (0.041 kg/km)</option>
+<option value="ev">Electric Vehicle (0.053 kg/km)</option>
+<option selected="" value="car">Gasoline/Diesel Car (0.192 kg/km)</option>
+<option value="carpool">Carpool [Shared ICE] (0.096 kg/km)</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span> Factor binds to placeholder <code class="font-label-sm text-label-sm bg-surface-container px-1 rounded">{{commute_mode}}</code>
+</span>
+</div>
+<!-- Field 3: Diet Type Today -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5" for="diet_type">
+<span class="material-symbols-outlined text-[18px] text-primary">restaurant</span>
+                Diet Type Today
+              </label>
+<span class="font-label-sm text-label-sm text-secondary-container font-semibold">Direct Baseline</span>
+</div>
+<div class="relative">
+<select class="w-full h-11 px-3.5 pr-10 bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg appearance-none transition-colors focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="diet_type" name="diet_type" onchange="window.recomputeLive()">
+<option value="vegan">Vegan (Low Carbon) [1.4 kg CO2e/day]</option>
+<option value="vegetarian">Vegetarian [1.7 kg CO2e/day]</option>
+<option value="pescatarian">Pescatarian [2.3 kg CO2e/day]</option>
+<option selected="" value="omnivore">Omnivore / Meat-Moderate [3.3 kg CO2e/day]</option>
+<option value="meat_heavy">Meat-Heavy (Beef/Lamb) [7.2 kg CO2e/day]</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schema</span> Food system LCA coefficient applied automatically
+            </span>
+</div>
+<!-- Field 4: Active Screen Hours -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5" for="screen_hours">
+<span class="material-symbols-outlined text-[18px] text-primary">devices</span>
+                Active Screen Time (hours)
+              </label>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Telemetry Synced
+              </span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-11 px-3.5 bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-label-lg text-label-lg rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary" id="screen_hours" max="24.0" min="0.0" name="screen_hours" oninput="window.recomputeLive()" placeholder="{{screen_hours}}" step="0.5" type="number" value="6.5"/>
+<span class="absolute right-3.5 font-label-md text-label-md text-on-surface-variant uppercase pointer-events-none">HRS</span>
+</div>
+<!-- Developer Telemetry Sub-Note -->
+<div class="flex items-center justify-between gap-2 p-2 rounded bg-surface-container-low text-on-surface-variant">
+<span class="font-body-sm text-body-sm flex items-center gap-1 truncate">
+<span class="material-symbols-outlined text-[15px] text-primary">sensors</span>
+                Source: <code class="font-label-sm text-label-sm font-semibold text-on-surface">{{screen_time_source}}</code> (System D-Bus Daemon)
+              </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-medium shrink-0">Auto-filled</span>
+</div>
+</div>
+</div>
+<!-- Submission Bar & Streamlit Actions -->
+<div class="pt-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-body-md text-body-md font-semibold transition-all shadow-sm active:scale-[0.98]" type="submit">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+              Save Daily Entry
+            </button>
+<button class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-md text-body-md transition-colors" onclick="document.getElementById('daily-logger-form').reset(); window.recomputeLive();" type="button">
+              Reset
+            </button>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto font-label-sm text-label-sm text-on-surface-variant">
+<span>Payload:</span>
+<span class="bg-surface-container px-2 py-1 rounded text-on-surface font-mono">JSON { commute_km, mode, diet, screen }</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- Submission Status Feedback / Validation Showcase Box -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Conditional State Renderers (st.success &amp; st.info)</span>
+<div class="flex items-center gap-2">
+<button class="text-xs px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high font-label-sm text-label-sm text-on-surface" onclick="window.toggleFeedbackState('success')">Test Success</button>
+<button class="text-xs px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high font-label-sm text-label-sm text-on-surface" onclick="window.toggleFeedbackState('duplicate')">Test Duplicate</button>
+</div>
+</div>
+<!-- State 1: Success Feedback (Active by default) -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-3 transition-all" id="feedback-success">
+<div class="p-1.5 rounded-full bg-secondary-container text-on-secondary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">Entry Successfully Recorded</span>
+<span class="font-label-sm text-label-sm px-2 py-0.2 rounded bg-surface-container text-primary font-mono">HTTP 201 CREATED</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1">
+          Entry saved for <strong class="font-semibold">{{current_date}}</strong>! Total estimated footprint calculated: 
+          <span class="font-label-md text-label-md font-bold text-primary bg-surface-container-low px-1.5 py-0.5 rounded" id="preview-calc-token">{{daily_calc_preview}} 3.94 kg CO2e</span>
+</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5">
+          Streamlit equivalent: <code class="bg-surface-container-low px-1 py-0.5 rounded">st.success("Entry saved for {{current_date}}! Impact calculated: {{daily_calc_preview}} kg CO2e")</code>
+</span>
+</div>
+</div>
+<!-- State 2: Duplicate / Update Warning Banner -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-3 transition-all" id="feedback-duplicate">
+<div class="p-1.5 rounded-full bg-surface-container-high text-tertiary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Existing Entry Detected for Today</span>
+<span class="font-label-sm text-label-sm px-2 py-0.2 rounded bg-surface-container text-tertiary font-mono">UPSERT PENDING</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          ℹ️ Existing entry detected for today. Submitting will update previous record in database instead of creating a duplicate row.
+        </p>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5">
+          Streamlit equivalent: <code class="bg-surface-container-low px-1 py-0.5 rounded">st.info("ℹ️ Existing entry detected for today. Submitting will update previous record.")</code>
+</span>
+</div>
+</div>
+</div>
+<!-- Developer Data Mapping Reference Panel (st.expander) -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<button class="w-full p-space-md md:p-space-lg flex items-center justify-between hover:bg-surface-container-low/40 transition-colors text-left" onclick="window.toggleExpander()" type="button">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded bg-surface-container text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Developer Schema &amp; Emission Coefficients</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Binds to <code class="font-label-sm text-label-sm">st.expander("Developer Schema &amp; Emission Coefficients")</code></span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200" id="expander-icon">expand_more</span>
+</button>
+<div class="hidden px-space-md md:px-space-lg pb-space-lg flex flex-col gap-space-md" id="expander-content">
+<!-- Formula Spec Card -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider">Calculation Formula Spec (kg CO2e)</span>
+<div class="p-3 rounded bg-surface-container-lowest font-label-md text-label-md text-on-surface overflow-x-auto whitespace-pre">
+total_daily_co2e = (
+    (commute_distance_km * EF[commute_mode]) +
+    diet_factor[diet_type] +
+    (screen_hours * watt_kwh_factor * grid_intensity_factor)
+)</div>
+</div>
+<!-- Coefficients Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Commute Table -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold uppercase">Commute EF Mapping (IPCC AR6)</span>
+<div class="rounded-lg bg-surface-container-low p-2 font-label-sm text-label-sm flex flex-col gap-1">
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Bike / Walk</span>
+<span class="font-mono text-primary font-bold">0.000 kg / km</span>
+</div>
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Public Transit (Bus/Train)</span>
+<span class="font-mono text-primary font-bold">0.041 kg / km</span>
+</div>
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Electric Vehicle</span>
+<span class="font-mono text-primary font-bold">0.053 kg / km</span>
+</div>
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Gasoline/Diesel Car</span>
+<span class="font-mono text-primary font-bold">0.192 kg / km</span>
+</div>
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Carpool</span>
+<span class="font-mono text-primary font-bold">0.096 kg / km</span>
+</div>
+</div>
+</div>
+<!-- Diet & Screen Table -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold uppercase">Diet Factors &amp; Power Constants</span>
+<div class="rounded-lg bg-surface-container-low p-2 font-label-sm text-label-sm flex flex-col gap-1">
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Vegan Daily Baseline</span>
+<span class="font-mono text-secondary font-bold">1.40 kg CO2e</span>
+</div>
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Omnivore / Meat-Moderate</span>
+<span class="font-mono text-secondary font-bold">3.30 kg CO2e</span>
+</div>
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Meat-Heavy (Beef/Lamb)</span>
+<span class="font-mono text-secondary font-bold">7.20 kg CO2e</span>
+</div>
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Display Wattage (Active)</span>
+<span class="font-mono text-on-surface-variant font-bold">~0.050 kWh / hr</span>
+</div>
+<div class="flex justify-between py-1 px-2 rounded bg-surface-container-lowest">
+<span>Avg Grid Carbon Intensity</span>
+<span class="font-mono text-on-surface-variant font-bold">0.420 kg CO2e / kWh</span>
+</div>
+</div>
+</div>
+</div>
+<!-- JSON Payload Mock -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Postgres / SQLite ORM Contract Model</span>
+<pre class="p-3 rounded-lg bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm overflow-x-auto leading-relaxed"><code>{
+  "user_id": "usr_991823a",
+  "log_date": "2025-02-23",
+  "commute_km": 12.5,
+  "commute_mode": "Gasoline/Diesel Car",
+  "diet_type": "Omnivore / Meat-Moderate",
+  "screen_hours": 6.5,
+  "telemetry_source": "system_dbus_mon",
+  "computed_carbon_kg": 3.94,
+  "sync_state": "COMMITTED"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<script>
+(function() {
+  const commuteRates = {
+    bike: 0.0,
+    transit: 0.041,
+    ev: 0.053,
+    car: 0.192,
+    carpool: 0.096
+  };
+
+  const dietRates = {
+    vegan: 1.4,
+    vegetarian: 1.7,
+    pescatarian: 2.3,
+    omnivore: 3.3,
+    meat_heavy: 7.2
+  };
+
+  const wattFactor = 0.05 * 0.42; // ~0.021 kg per hour
+
+  window.recomputeLive = function() {
+    const distEl = document.getElementById('commute_distance');
+    const modeEl = document.getElementById('commute_mode');
+    const dietEl = document.getElementById('diet_type');
+    const screenEl = document.getElementById('screen_hours');
+
+    if (!distEl || !modeEl || !dietEl || !screenEl) return;
+
+    const dist = parseFloat(distEl.value) || 0;
+    const modeRate = commuteRates[modeEl.value] !== undefined ? commuteRates[modeEl.value] : 0.192;
+    const dietRate = dietRates[dietEl.value] !== undefined ? dietRates[dietEl.value] : 3.3;
+    const screenHrs = parseFloat(screenEl.value) || 0;
+
+    const commuteTotal = dist * modeRate;
+    const screenTotal = screenHrs * wattFactor;
+    const grandTotal = commuteTotal + dietRate + screenTotal;
+
+    document.getElementById('stat-commute').textContent = commuteTotal.toFixed(2) + ' kg CO2e';
+    document.getElementById('stat-diet').textContent = dietRate.toFixed(2) + ' kg CO2e';
+    document.getElementById('stat-screen').textContent = screenTotal.toFixed(2) + ' kg CO2e';
+    document.getElementById('stat-total').textContent = grandTotal.toFixed(2) + ' kg CO2e';
+
+    const previewEl = document.getElementById('preview-calc-token');
+    if (previewEl) {
+      previewEl.textContent = grandTotal.toFixed(2) + ' kg CO2e';
+    }
+  };
+
+  window.handleLogSubmission = function() {
+    const successCard = document.getElementById('feedback-success');
+    if (successCard) {
+      successCard.classList.remove('ring-2', 'ring-primary');
+      void successCard.offsetWidth; // trigger reflow
+      successCard.classList.add('ring-2', 'ring-primary');
+    }
+    // Increment logged counter visually
+    const counterDisplay = document.getElementById('logged-days-display');
+    if (counterDisplay && counterDisplay.textContent.includes('{{days_logged_count}}')) {
+      counterDisplay.innerHTML = '1 <span class="font-headline-sm text-headline-sm text-on-surface-variant font-normal">Day Logged (Active)</span>';
+    }
+  };
+
+  window.toggleFeedbackState = function(state) {
+    const sEl = document.getElementById('feedback-success');
+    const dEl = document.getElementById('feedback-duplicate');
+    if (state === 'success') {
+      sEl.style.opacity = '1';
+      dEl.style.opacity = '0.35';
+    } else {
+      sEl.style.opacity = '0.35';
+      dEl.style.opacity = '1';
+    }
+  };
+
+  window.toggleExpander = function() {
+    const content = document.getElementById('expander-content');
+    const icon = document.getElementById('expander-icon');
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.add('hidden');
+      icon.style.transform = 'rotate(0deg)';
+    }
+  };
+
+  // Initial calculation on load
+  window.recomputeLive();
+})();
+</script></div></main><footer class="w-full bg-surface-container-low mt-space-xl py-space-lg"><div class="max-w-6xl mx-auto px-margin md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><span>EcoTrace AI Workbench v2.4 • Calibration Mode</span><span>Verified Emission Factors: IPCC AR6 Standard Database</span></div></footer></body></html>

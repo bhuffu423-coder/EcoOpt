@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.venv/
+venv/
+env/
+ecotrace.db
+*.db-journal
+*.db-wal
+*.db-shm
+.streamlit/secrets.toml

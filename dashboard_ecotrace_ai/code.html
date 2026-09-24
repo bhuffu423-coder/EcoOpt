@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#00714d", "on-error": "#ffffff", "on-background": "#111c2d", "surface-container": "#e7eeff", "inverse-on-surface": "#ecf1ff", "secondary-fixed": "#6ffbbe", "on-surface": "#111c2d", "tertiary": "#825100", "primary-fixed-dim": "#68dba9", "outline-variant": "#bccac0", "outline": "#6d7a72", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed-variant": "#653e00", "on-tertiary": "#ffffff", "surface-variant": "#d8e3fb", "on-secondary": "#ffffff", "error-container": "#ffdad6", "secondary": "#006c49", "on-secondary-fixed-variant": "#005236", "primary": "#006948", "inverse-primary": "#68dba9", "surface-container-high": "#dee8ff", "tertiary-fixed-dim": "#ffb95f", "secondary-fixed-dim": "#4edea3", "surface-container-lowest": "#ffffff", "on-tertiary-container": "#fffbff", "secondary-container": "#6cf8bb", "surface-container-low": "#f0f3ff", "on-primary-fixed": "#002114", "on-primary-container": "#f5fff7", "surface-dim": "#cfdaf2", "tertiary-container": "#a36700", "on-surface-variant": "#3d4a42", "inverse-surface": "#263143", "surface-container-highest": "#d8e3fb", "surface-bright": "#f9f9ff", "surface-tint": "#006c4a", "on-tertiary-fixed": "#2a1700", "on-secondary-fixed": "#002113", "background": "#f9f9ff", "primary-fixed": "#85f8c4", "on-primary": "#ffffff", "on-error-container": "#93000a", "surface": "#f9f9ff", "on-primary-fixed-variant": "#005137", "primary-container": "#00855d", "error": "#ba1a1a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-desktop": "2.5rem", "space-sm": "0.5rem", "space-xl": "2.5rem", "space-md": "1rem", "gutter-desktop": "1.5rem", "gutter": "1rem", "margin": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "body-sm": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "headline-lg-mobile": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "label-lg": ["JetBrains Mono"], "label-sm": ["JetBrains Mono"], "display-lg": ["Space Grotesk"], "body-md": ["Inter"] }, "fontSize": { "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-margin md:px-margin-desktop"><div class="h-full max-w-6xl mx-auto flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><img alt="EcoTrace AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UZdU2sfG5DGiCz3HSoBAT8cQs9FBo6kecgsmj0DWAgWlqe01nnITTFQHC1V8uyZ4qwwacegtb0NyFPacGP-oFDKaKJKxGeJ4b7W9801Bqh336yxIRJSxdQArfb_5jIR6_l8vW1VAxT33sSuMiu4OXp7ihFviTdTDf-QGVcx6-Y6fs3OS2ej1ENbK-dJXpRn00ILyotXrLJWnOJbLy2JEMIBabBmYipzsj2kVU8jX2JL-bhfqt6aYiWDk8"/><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">EcoTrace AI</span><span class="hidden lg:inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-low font-label-sm text-label-sm text-secondary-container"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Backend: PostgreSQL / SQLite connected</span></div><span class="hidden sm:inline-block font-body-sm text-body-sm text-on-surface-variant">Personal Carbon Intelligence &amp; ML Forecasting</span></div></div><div class="flex items-center gap-space-sm md:gap-space-md"><div class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-label-md text-label-md text-on-surface"><span class="font-body-sm text-body-sm text-on-surface-variant">Logged:</span><span class="font-label-md text-label-md font-bold text-primary">{{days_logged_count}} Days</span></div><div class="hidden xl:flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-tertiary">code</span><span>Developer Spec Mode</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="w-full bg-surface-container-lowest"><div class="max-w-6xl mx-auto px-margin md:px-margin-desktop"><nav class="flex items-center gap-gutter" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a class="py-2.5 px-1 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="log-data" href="#">Log Data</a><a aria-current="page" class="py-2.5 px-1 transition-colors text-primary font-semibold border-b-2 border-primary" data-path="dashboard" href="#">Dashboard</a><a class="py-2.5 px-1 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="prediction-and-prevention" href="#">Prediction &amp; Prevention</a></nav></div></div></header><main class="w-full pt-20 bg-background"><div class="max-w-6xl mx-auto px-margin md:px-margin-desktop py-space-lg"><div class="flex flex-col w-full">
+<!-- Top Control Bar / Instrumentation Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-gutter mb-space-lg">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Analytical View</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">st.session_state.active_tab = "Dashboard"</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-space-xs">Carbon Flux Telemetry</h1>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-low p-1.5 rounded-lg">
+<div class="px-2.5 py-1 rounded bg-surface-container-lowest text-primary font-label-md text-label-md font-medium shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>Window: 7D Rolling</span>
+</div>
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_view_day</span>
+<span>14D</span>
+</button>
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span>30D Cycle</span>
+</button>
+<div class="w-px h-4 bg-outline-variant mx-1"></div>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary transition-colors" title="Trigger Recalculation (st.rerun)">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+</button>
+</div>
+</div>
+<!-- Top Metric Row: st.columns(3) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-space-lg">
+<!-- Primary Card: Today's Total CO2 Emitted -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/5 rounded-full pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-headline-sm text-label-md tracking-wider uppercase text-on-surface-variant font-semibold">st.metric // Card 01</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-low text-primary font-semibold">LIVE REGISTRY</span>
+</div>
+<div class="font-headline-sm text-body-md text-on-surface font-semibold mb-space-sm">Today's Total CO2 Emitted</div>
+<!-- Rendered Value / Streamlit Metric Spec -->
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-label-lg text-display-lg text-on-surface font-semibold tracking-tight">{{today_total}}</span>
+<span class="font-label-md text-headline-sm text-on-surface-variant font-medium">kg CO2e</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">trending_up</span>
+            {{today_vs_baseline_delta}}%
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">vs personal 7d avg baseline</span>
+</div>
+<!-- Conditional developer fallback simulation for has_today_entry == False -->
+<div class="mt-space-sm p-space-sm rounded-lg bg-tertiary-fixed/40 flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0">info</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-tertiary">st.warning conditional branch:</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">If <code class="font-label-sm text-label-sm text-primary font-semibold">{{has_today_entry}} == False</code>:</span>
+<a class="font-body-sm text-body-sm font-semibold text-tertiary hover:underline inline-flex items-center gap-0.5 mt-0.5" href="#">
+              No entry logged today yet. [Log Data →]
+            </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Card: 7-Day Cumulative Footprint -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-headline-sm text-label-md tracking-wider uppercase text-on-surface-variant font-semibold">st.metric // Card 02</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant font-mono">CYCLE 7/7</span>
+</div>
+<div class="font-headline-sm text-body-md text-on-surface font-semibold mb-space-sm">7-Day Cumulative Footprint</div>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-label-lg text-display-lg text-on-surface font-semibold tracking-tight">{{weekly_cumulative_total}}</span>
+<span class="font-label-md text-headline-sm text-on-surface-variant font-medium">kg CO2e</span>
+</div>
+</div>
+<div class="mt-space-md">
+<!-- Budget Progress Bar -->
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant mb-1">
+<span>Target budget: <span class="font-semibold text-on-surface">{{weekly_budget_limit}} kg</span></span>
+<span class="text-primary font-semibold">68% Consumed</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 68%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant mt-1.5">
+<span>Allocation: 35.0 kg allowance</span>
+<span class="text-secondary font-medium">11.2 kg remaining</span>
+</div>
+</div>
+</div>
+<!-- Tertiary Card: Data Quality / Confidence -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-headline-sm text-label-md tracking-wider uppercase text-on-surface-variant font-semibold">st.metric // Card 03</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container font-semibold">HIGH FIDELITY</span>
+</div>
+<div class="font-headline-sm text-body-md text-on-surface font-semibold mb-space-sm">Data Quality / Confidence</div>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-label-lg text-display-lg text-primary font-semibold tracking-tight">{{data_quality_score}}%</span>
+<span class="font-label-md text-label-lg text-on-surface-variant font-normal">sensor index</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant mb-1.5">
+<span class="font-medium text-on-surface">Sampling Frequency</span>
+<span class="font-mono text-primary font-semibold">{{days_logged_count}}/7 days recorded</span>
+</div>
+<!-- 7-Day Dot Frequency Matrix -->
+<div class="grid grid-cols-7 gap-1.5 pt-1">
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[9px] text-on-surface-variant">M</span>
+<div class="w-full h-2 rounded-sm bg-primary" title="Day 1 Logged"></div>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[9px] text-on-surface-variant">T</span>
+<div class="w-full h-2 rounded-sm bg-primary" title="Day 2 Logged"></div>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[9px] text-on-surface-variant">W</span>
+<div class="w-full h-2 rounded-sm bg-primary" title="Day 3 Logged"></div>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[9px] text-on-surface-variant">T</span>
+<div class="w-full h-2 rounded-sm bg-primary" title="Day 4 Logged"></div>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[9px] text-on-surface-variant">F</span>
+<div class="w-full h-2 rounded-sm bg-primary" title="Day 5 Logged"></div>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[9px] text-on-surface-variant">S</span>
+<div class="w-full h-2 rounded-sm bg-surface-container-high" title="Day 6 Pending"></div>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[9px] text-on-surface-variant">S</span>
+<div class="w-full h-2 rounded-sm bg-surface-container-high" title="Day 7 Pending"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Visualization Section: 2 Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-space-lg">
+<!-- Left Column: Source Breakdown (st.altair_chart / st.pyplot) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">pie_chart</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Source Breakdown</h2>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-low font-mono text-on-surface-variant">st.altair_chart</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Categorical distribution across logged activities</p>
+<!-- Donut Chart & Category Metric Grid -->
+<div class="flex flex-col sm:flex-row items-center gap-space-md my-space-sm">
+<!-- Vector Donut Graphic (Under 2KB, dynamic tokens) -->
+<div class="relative w-44 h-44 shrink-0 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 120 120">
+<!-- Background ring -->
+<circle class="text-surface-container-high" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-width="14"></circle>
+<!-- Commute slice (approx 52%) -->
+<circle class="text-primary" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="156 301" stroke-dashoffset="0" stroke-width="14"></circle>
+<!-- Diet slice (approx 31%) -->
+<circle class="text-secondary" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="93 301" stroke-dashoffset="-156" stroke-width="14"></circle>
+<!-- Electricity/Screen slice (approx 17%) -->
+<circle class="text-tertiary-container" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="52 301" stroke-dashoffset="-249" stroke-width="14"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<span class="font-label-sm text-[10px] uppercase text-on-surface-variant">Primary</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Commute</span>
+<span class="font-label-sm text-label-sm font-mono text-primary font-semibold">{{commute_pct}}%</span>
+</div>
+</div>
+<!-- Legend / Segment Value Breakdown -->
+<div class="flex flex-col gap-space-sm w-full">
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary shrink-0"></span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Commute Mode</span>
+</div>
+<div class="text-right font-label-md text-label-md font-semibold text-on-surface">
+                {{commute_pct}}%
+              </div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary shrink-0"></span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Diet / Caloric</span>
+</div>
+<div class="text-right font-label-md text-label-md font-semibold text-on-surface">
+                {{diet_pct}}%
+              </div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary-container shrink-0"></span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Electricity &amp; Screen</span>
+</div>
+<div class="text-right font-label-md text-label-md font-semibold text-on-surface">
+                {{electricity_pct}}%
+              </div>
+</div>
+</div>
+</div>
+<!-- Developer Variable Binding Inspector -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded font-label-sm text-label-sm text-on-surface-variant font-mono">
+<span class="text-primary font-semibold">Chart Binding:</span> st.altair_chart({{pie_chart_data}})
+          <div class="text-[10px] text-outline mt-0.5 truncate">
+            {'Commute': {{commute_pct}}, 'Diet': {{diet_pct}}, 'Electricity': {{electricity_pct}}}
+          </div>
+</div>
+</div>
+<!-- Visible Empty State Fallback Container Spec -->
+<div class="mt-space-md pt-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-high/60 flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-dim flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-outline text-[24px]">donut_large</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider">Empty State Spec (If {{pie_chart_data}} is empty)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">"No emission logs found for selected period. Log daily data to view breakdown."</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: 7-Day Emission Trend (st.altair_chart) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">stacked_line_chart</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">7-Day Emission Trend</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2.5 h-0.5 bg-primary rounded-full"></span> Daily Actual
+            </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-tertiary">
+<span class="w-2.5 h-0.5 bg-tertiary border-dashed rounded-full"></span> Target Cap (5.0 kg)
+            </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Daily actual vs personal reduction target (IPCC tier 1)</p>
+<!-- Vector Trend Line Graph Container -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md my-space-xs relative overflow-hidden">
+<div class="h-44 w-full relative flex items-end">
+<!-- SVG Grid & Line Chart -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 500 160">
+<!-- Dashed Baseline Grid lines -->
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="500" y1="40" y2="40"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="500" y1="80" y2="80"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="500" y1="120" y2="120"></line>
+<!-- Threshold Line (Target Limit 5.0kg) -->
+<line class="text-tertiary" stroke="currentColor" stroke-dasharray="6 3" stroke-width="1.5" x1="0" x2="500" y1="65" y2="65"></line>
+<!-- Gradient under line -->
+<defs>
+<lineargradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#006948" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#006948" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<polygon fill="url(#areaGradient)" points="20,130 90,85 170,110 250,55 330,70 410,38 490,95 490,150 20,150"></polygon>
+<!-- Primary Data Line -->
+<polyline class="text-primary" fill="none" points="20,130 90,85 170,110 250,55 330,70 410,38 490,95" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Coordinate Data Dots -->
+<circle class="fill-surface-container-lowest stroke-primary" cx="20" cy="130" r="3.5" stroke-width="2"></circle>
+<circle class="fill-surface-container-lowest stroke-primary" cx="90" cy="85" r="3.5" stroke-width="2"></circle>
+<circle class="fill-surface-container-lowest stroke-primary" cx="170" cy="110" r="3.5" stroke-width="2"></circle>
+<circle class="fill-surface-container-lowest stroke-primary" cx="250" cy="55" r="3.5" stroke-width="2"></circle>
+<circle class="fill-surface-container-lowest stroke-primary" cx="330" cy="70" r="3.5" stroke-width="2"></circle>
+<!-- Spike Marker (Day 6) -->
+<circle class="fill-error stroke-surface-container-lowest" cx="410" cy="38" r="4.5" stroke-width="2"></circle>
+<circle class="fill-surface-container-lowest stroke-primary" cx="490" cy="95" r="3.5" stroke-width="2"></circle>
+</svg>
+<!-- Value Popover / Spike Alert Pill -->
+<div class="absolute top-3 right-16 px-2 py-1 rounded bg-surface-container-lowest shadow-md flex items-center gap-1 font-label-sm text-label-sm pointer-events-none">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+<span class="font-mono font-semibold text-on-surface">Peak: 6.4 kg</span>
+<span class="text-error font-medium">(Commute Transit)</span>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant pt-space-xs font-mono">
+<span>May 18</span>
+<span>May 19</span>
+<span>May 20</span>
+<span>May 21</span>
+<span>May 22</span>
+<span class="text-primary font-bold">May 23 (Peak)</span>
+<span>May 24 (Today)</span>
+</div>
+</div>
+<div class="mt-space-sm p-space-sm bg-surface-container-low rounded font-label-sm text-label-sm text-on-surface-variant font-mono">
+<span class="text-primary font-semibold">Data Stream:</span> {{trend_data}} <span class="text-outline">• [{date: str, kg_co2: float, baseline: 5.0}]</span>
+</div>
+</div>
+<!-- Altair Fallback/Partial State Banner Spec -->
+<div class="mt-space-md pt-space-md">
+<div class="p-space-sm rounded-lg bg-surface-container-high/60 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[20px] shrink-0">hourglass_top</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider">Partial State Condition (If len({{trend_data}}) &lt; 2)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+              "Collecting trend data... At least 2 days of logs required to plot trend line. Current count: <code class="font-mono text-primary font-bold">{{days_logged_count}}</code>"
+            </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Log History Table Section: st.dataframe / st.table -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">table_rows</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Recent Logs</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Database records bound to <code class="font-label-sm text-label-sm text-primary font-semibold font-mono">{{recent_logs_dataframe}}</code></p>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-2 py-1 rounded bg-surface-container-low text-on-surface-variant font-mono">st.dataframe widget</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-body-sm text-body-sm font-medium transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+<!-- Responsive Styled Data Table -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-2.5 px-space-md rounded-l-lg">Date</th>
+<th class="py-2.5 px-space-md">Commute Mode</th>
+<th class="py-2.5 px-space-md">Distance</th>
+<th class="py-2.5 px-space-md">Diet</th>
+<th class="py-2.5 px-space-md">Screen Hrs</th>
+<th class="py-2.5 px-space-md">Total kg CO2e</th>
+<th class="py-2.5 px-space-md rounded-r-lg text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-md font-mono font-medium text-primary">2025-05-24</td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">subway</span> Subway / Metro
+              </span>
+</td>
+<td class="py-3 px-space-md font-mono">18.4 km</td>
+<td class="py-3 px-space-md">Plant-Based</td>
+<td class="py-3 px-space-md font-mono">6.5 hrs</td>
+<td class="py-3 px-space-md font-mono font-semibold text-primary">2.41</td>
+<td class="py-3 px-space-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Inspect Record">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-md font-mono font-medium text-primary">2025-05-23</td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px] text-error">directions_car</span> Single ICE Auto
+              </span>
+</td>
+<td class="py-3 px-space-md font-mono">34.0 km</td>
+<td class="py-3 px-space-md">Omnivore</td>
+<td class="py-3 px-space-md font-mono">8.2 hrs</td>
+<td class="py-3 px-space-md font-mono font-semibold text-error">6.42</td>
+<td class="py-3 px-space-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Inspect Record">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-md font-mono font-medium text-primary">2025-05-22</td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px] text-secondary">electric_bike</span> E-Bike
+              </span>
+</td>
+<td class="py-3 px-space-md font-mono">12.0 km</td>
+<td class="py-3 px-space-md">Vegetarian</td>
+<td class="py-3 px-space-md font-mono">5.0 hrs</td>
+<td class="py-3 px-space-md font-mono font-semibold text-primary">1.89</td>
+<td class="py-3 px-space-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Inspect Record">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-md font-mono font-medium text-primary">2025-05-21</td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">directions_bus</span> Municipal Bus
+              </span>
+</td>
+<td class="py-3 px-space-md font-mono">22.5 km</td>
+<td class="py-3 px-space-md">Omnivore</td>
+<td class="py-3 px-space-md font-mono">7.1 hrs</td>
+<td class="py-3 px-space-md font-mono font-semibold text-secondary">3.75</td>
+<td class="py-3 px-space-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Inspect Record">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Empty Table Spec Container -->
+<div class="mt-space-md p-space-md rounded-xl bg-surface-container-low/70 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[20px]">dataset</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider">Empty Database State Handler</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Display fallback string when dataset query returns 0 rows: <span class="font-mono text-error font-medium">"No records found in database."</span></span>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded bg-primary text-on-primary font-body-sm text-body-sm font-medium hover:bg-on-primary-container transition-colors shrink-0" href="#">
+        Initiate First Log
+      </a>
+</div>
+</div>
+</div></div></main><footer class="w-full bg-surface-container-low mt-space-xl py-space-lg"><div class="max-w-6xl mx-auto px-margin md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><span>EcoTrace AI Workbench v2.4 • Calibration Mode</span><span>Verified Emission Factors: IPCC AR6 Standard Database</span></div></footer></body></html>
