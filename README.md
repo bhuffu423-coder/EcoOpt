@@ -1,13 +1,23 @@
 # EcoTrace AI 🌿
 
-Personal carbon footprint tracker with ML-powered prediction.
+Personal carbon footprint tracker with ML-powered forecasting and multi-user telemetry.
 **Every displayed number comes from your real SQLite data — no hardcoded demo values.**
+
+---
+
+## Key Features
+
+- **🔐 Multi-User Authentication:** Secure user registration and login powered by salted PBKDF2-HMAC-SHA256 password hashing. Every user's data, baseline metrics, and ML forecasts are strictly isolated.
+- **⚡ Direct Household Electricity (kWh):** Direct tracking in kilowatt-hours (kWh) reflecting actual meter readings or bill averages, calibrated to the regional electric grid factor (0.82 kg CO₂/kWh).
+- **⚡ Instant Reactive Telemetry:** Tab 1 provides immediate real-time arithmetic feedback as you change mobility, diet, or electricity inputs.
+- **🔮 Time-Series ML Forecasting:** `RandomForestRegressor` with continuous-calendar lag windows and regularization (`max_depth=4`, `min_samples_leaf=2`) predicting 24-hour emissions.
+- **🛡️ Actionable Prevention Matrix:** Interactive simulator modeling the impact of tomorrow's habit changes in real-time, plus exportable executive audit reports.
 
 ---
 
 ## Requirements
 
-- Windows 10/11
+- Windows 10/11, macOS, or Linux
 - Python 3.10+
 
 ---
@@ -36,65 +46,61 @@ The app opens at **http://localhost:8501** in your browser.
 
 | File | Purpose |
 |---|---|
-| `app.py` | Streamlit UI — 3 tabs, no inline SQL or math |
-| `db.py` | All SQLite access: init, read, write |
-| `calc.py` | Pure emission factor functions |
-| `model.py` | RandomForest predictor; returns None < 7 days |
-| `notify.py` | Desktop toast: win10toast → plyer → console |
+| `app.py` | Streamlit UI — Google Stitch Design, Auth Gate, 3 tabs, reactive live telemetry |
+| `db.py` | Multi-user SQLite layer with safe context managers, auth hashing, and user isolation |
+| `calc.py` | Pure emission factor calculation functions |
+| `model.py` | Regularized RandomForest predictor with continuous-calendar interpolation |
+| `notify.py` | Desktop notifications wrapper: win10toast → plyer → console |
 | `scheduler_setup.py` | Windows Task Scheduler daily launch registration |
-| `tests/` | pytest tests (43 assertions) |
-| `ecotrace.db` | Auto-created SQLite database |
+| `tests/` | Comprehensive pytest test suite (61 assertions across 4 test modules) |
+| `ecotrace.db` | Auto-created SQLite database (ignored by git) |
 
 ---
 
 ## Emission Factors Used
 
-| Source | Factor |
-|---|---|
-| Car | 0.17 kg CO₂/km (UK DEFRA 2023) |
-| Public transit | 0.089 kg CO₂/km (UK DEFRA 2023) |
-| Bike / Walk | 0.000 kg CO₂/km |
-| Meat-heavy diet | 3.3 kg CO₂/day (Our World in Data) |
-| Vegetarian diet | 1.7 kg CO₂/day |
-| Vegan diet | 1.1 kg CO₂/day |
-| Laptop electricity | 0.05 kWh/hr × 0.82 kg/kWh (CEA India 2023) |
+| Source | Factor | Reference |
+|---|---|---|
+| Car | 0.170 kg CO₂/km | UK DEFRA 2023 average petrol car |
+| Public transit | 0.089 kg CO₂/km | UK DEFRA 2023 average bus |
+| Bike / Walk | 0.000 kg CO₂/km | Zero-emission active transit |
+| Meat-heavy diet | 3.300 kg CO₂/day | Our World in Data global benchmark |
+| Vegetarian diet | 1.700 kg CO₂/day | Our World in Data plant-forward benchmark |
+| Vegan diet | 1.100 kg CO₂/day | Our World in Data vegan benchmark |
+| Household Electricity | 0.820 kg CO₂/kWh | CEA India 2023 grid emission factor |
 
-*All values are estimates for personal awareness only.*
+*All values are estimates for personal awareness and optimization.*
 
 ---
 
 ## Manual Test Checklist
 
-1. **Empty state** — Open app with no database. All 3 tabs must show "No data yet" messages without crashing.
-2. **Log first entry** — Tab "Log Data": enter `commute_km=10`, mode=`car`, diet=`meat_heavy`, screen hrs=`8`. Click Save. Verify success message shows `5.548 kg CO₂`.
-3. **Breakdown arithmetic** — Commute: `10 × 0.17 = 1.920`, Diet: `3.3`, Electricity: `8 × 0.05 × 0.82 = 0.328`. Total = `5.548`. Confirm in success message.
-4. **Dashboard metrics** — Switch to Tab "Dashboard". Verify `today_total_kg` matches entry just saved. Pie chart shows three slices.
-5. **Under-7-days state** — Tab "Prediction & Prevention" must display `"Collecting data… Need 7 days, you have 1"`.
-6. **Log 6 more distinct days** — Use the form 6 more times (or directly insert rows into `ecotrace.db` with different dates). Prediction tab should now train and display a predicted value.
-7. **High-emission alert** — After 7 days, edit a row in the DB so total_kg > 7.0. Verify the orange alert card appears.
-8. **Zero input** — Log `commute_km=0`, `walk`, `vegan`, `active_hours=0`. Verify total = `1.1` (vegan diet only).
-9. **Recent entries table** — Tab "Log Data" bottom section shows the 10 most recent entries in correct order (newest first).
-10. **Scheduler** — Run `python scheduler_setup.py` from the EcoOpt folder. Verify it prints the schtasks command and "registered successfully" (requires admin or appropriate account rights).
+1. **Authentication Gate** — Launch the app. If unauthenticated, the Stitch login card appears with "Sign In" and "Create Account" tabs. Main tabs are protected.
+2. **Account Creation** — Create an account (e.g., username `testuser`, password `password123`). The app authenticates immediately and loads the user profile with dynamic avatar badge and username pill.
+3. **Log First Entry** — Tab 1 ("Log Data"): choose today's date, enter `commute_km=10.0`, mode=`car`, diet=`meat_heavy`, and electricity=`5.0 kWh`.
+4. **Live Arithmetic Preview** — Observe the live summary bar before saving:
+   - Mobility: `10.0 × 0.170 = 1.700 kg`
+   - Diet: `3.300 kg`
+   - Electricity: `5.0 × 0.820 = 4.100 kg`
+   - **Est. Total: `9.100 kg CO₂e`**
+5. **Save Entry & Upsert** — Click "Save Activity Entry". A confirmation toast appears, and the submission log updates. Change a value on the same date and click "Update Day's Entry" — verify the existing row updates without creating a duplicate.
+6. **Multi-User Data Isolation** — Click "Logout". Create a second user account (e.g., `user2`). Verify 0 days logged and empty submission history. Log back into `testuser` and verify all entries persist intact.
+7. **Dashboard Telemetry** — Switch to Tab 2 ("Dashboard"). Today's total metric card displays `9.10 kg CO₂e`, and the categorical donut chart displays proportional shares.
+8. **Cold Start & 7-Day Forecasting** — Tab 3 ("Prediction & Prevention") displays the Cold Start Safeguard until 7 distinct days are recorded. With 7+ days, the RandomForest model trains and outputs tomorrow's predicted emission, feature importances, and prevention simulator.
+9. **Executive Audit Report** — Click "Generate Audit Report" in Tab 3. Verify the report preview generates complete telemetry, ML attribution, and prevention plans, and download the `.txt` report.
 
 ---
 
-## Run Tests
+## Run Automated Tests
+
+Run the complete 61-test suite:
 
 ```bash
-cd "C:\Users\Sankaran\Desktop\EcoOpt"
 python -m pytest tests/ -v
 ```
 
-Expected: **43 passed**
-
----
-
-## Optional: Desktop Notifications
-
-```bash
-pip install win10toast       # preferred
-# OR
-pip install plyer            # fallback
-```
-
-If neither is installed, notifications print to console (app never crashes).
+Expected output: **61 passed in ~20s**
+- `tests/test_calc.py`: 20 unit tests for emission factors and zero-handling
+- `tests/test_db.py`: 18 tests for schema, context managers, and query isolation
+- `tests/test_ecotrace.py`: 12 integration tests for auth security, multi-user isolation, and gap handling
+- `tests/test_model.py`: 11 tests for continuous-calendar interpolation and regressor fitting

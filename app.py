@@ -1,6 +1,7 @@
 """
 EcoTrace AI - Personal Carbon Footprint Tracker with ML Forecasting
 Streamlit Application grounded in Google Stitch Design Specification
+Multi-user Authentication with Real-time Reactivity
 """
 
 import streamlit as st
@@ -213,6 +214,7 @@ button[data-baseweb="tab"][aria-selected="true"] {
 
 /* Streamlit Inputs & Button Customization */
 div[data-testid="stNumberInput"] input,
+div[data-testid="stTextInput"] input,
 div[data-testid="stDateInput"] input,
 div[data-testid="stSelectbox"] div[data-baseweb="select"] {
     background-color: var(--surface-low) !important;
@@ -241,40 +243,142 @@ div[data-testid="stFormSubmitButton"] button:hover {
 </style>
 """, unsafe_allow_html=True)
 
-# ── Dynamic Session State & Reactive Count ───────────────────────────────────
-days_count = db.get_days_logged_count()
-today_total = db.get_today_total()
+# ── Session State Auth Initialization ─────────────────────────────────────────
+if "user" not in st.session_state:
+    st.session_state["user"] = None
+
+# ── TASK 2.1: Stitch-Styled Auth Gate ─────────────────────────────────────────
+if st.session_state["user"] is None:
+    st.markdown("""
+    <div class="ec-header">
+        <div class="ec-logo-group">
+            <div class="ec-logo-badge">🌱</div>
+            <div>
+                <div class="ec-header-title">
+                    EcoTrace AI
+                    <span class="ec-pill"><span class="ec-dot"></span>SQLite Connected</span>
+                </div>
+                <div style="font-size: 12px; color: #6d7a72;">Personal Carbon Intelligence &amp; Multi-Objective Optimization</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <div class="ec-pill" style="padding: 6px 12px; font-size: 13px; font-weight: 700;">
+                🔒 Secure Portal
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    col_l, col_center, col_r = st.columns([1, 2, 1])
+    with col_center:
+        st.markdown("""
+        <div class="st-card st-card-accent" style="margin-top: 10px; margin-bottom: 24px;">
+            <div class="metric-label">Access Control // Identity Verification</div>
+            <div class="headline" style="font-size: 22px; font-weight: 700; margin-top: 4px; margin-bottom: 6px;">Sign In to EcoTrace AI</div>
+            <div style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 8px;">
+                Access your personalized carbon flux telemetry, multi-variable ML forecasts, and mitigation strategies.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        tab_signin, tab_signup = st.tabs(["🔐 Sign In", "✨ Create Account"])
+
+        with tab_signin:
+            with st.form("signin_form", clear_on_submit=False):
+                st.markdown("<strong>Username</strong>", unsafe_allow_html=True)
+                login_user = st.text_input("Username", key="login_user_input", label_visibility="collapsed")
+                st.markdown("<strong>Password</strong>", unsafe_allow_html=True)
+                login_pwd = st.text_input("Password", type="password", key="login_pwd_input", label_visibility="collapsed")
+                st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
+                signin_btn = st.form_submit_button("Sign In to Registry", use_container_width=True)
+
+                if signin_btn:
+                    user = db.authenticate_user(login_user.strip(), login_pwd)
+                    if user:
+                        st.session_state["user"] = user
+                        st.toast(f"Welcome back, {user['username']}! 🌱", icon="👋")
+                        st.rerun()
+                    else:
+                        st.error("Invalid username or password.")
+
+        with tab_signup:
+            with st.form("signup_form", clear_on_submit=False):
+                st.markdown("<strong>Choose Username</strong>", unsafe_allow_html=True)
+                reg_user = st.text_input("Choose Username", key="reg_user_input", label_visibility="collapsed", help="Minimum 3 characters")
+                st.markdown("<strong>Choose Password</strong>", unsafe_allow_html=True)
+                reg_pwd = st.text_input("Choose Password", type="password", key="reg_pwd_input", label_visibility="collapsed", help="Minimum 6 characters")
+                st.markdown("<strong>Confirm Password</strong>", unsafe_allow_html=True)
+                reg_pwd_confirm = st.text_input("Confirm Password", type="password", key="reg_pwd_confirm_input", label_visibility="collapsed")
+                st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
+                signup_btn = st.form_submit_button("Create My Account", use_container_width=True)
+
+                if signup_btn:
+                    if reg_pwd != reg_pwd_confirm:
+                        st.error("Passwords do not match.")
+                    else:
+                        ok, msg = db.create_user(reg_user.strip(), reg_pwd)
+                        if ok:
+                            user = db.authenticate_user(reg_user.strip(), reg_pwd)
+                            st.session_state["user"] = user
+                            st.toast(f"Account created! Welcome, {user['username']}! 🎉", icon="🌱")
+                            st.rerun()
+                        else:
+                            st.error(msg)
+
+    st.stop()
+
+
+# ── Authenticated User Context & Telemetry ────────────────────────────────────
+user = st.session_state["user"]
+user_id = user["id"]
+username = user["username"]
+avatar_text = (username[:2] if len(username) >= 2 else username).upper()
+
+days_count = db.get_days_logged_count(user_id)
+today_total = db.get_today_total(user_id)
 today_str = date.today().isoformat()
 
-# ── Global Top Header ─────────────────────────────────────────────────────────
-st.markdown(f"""
-<div class="ec-header">
-    <div class="ec-logo-group">
-        <div class="ec-logo-badge">🌱</div>
-        <div>
-            <div class="ec-header-title">
-                EcoTrace AI
-                <span class="ec-pill"><span class="ec-dot"></span>SQLite Connected</span>
+# ── Dynamic Header & Logout ───────────────────────────────────────────────────
+head_col, logout_col = st.columns([10, 1.8])
+with head_col:
+    st.markdown(f"""
+    <div class="ec-header" style="margin-bottom: 0px;">
+        <div class="ec-logo-group">
+            <div class="ec-logo-badge">🌱</div>
+            <div>
+                <div class="ec-header-title">
+                    EcoTrace AI
+                    <span class="ec-pill"><span class="ec-dot"></span>SQLite Connected</span>
+                </div>
+                <div style="font-size: 12px; color: #6d7a72;">Personal Carbon Intelligence &amp; Multi-Objective Optimization</div>
             </div>
-            <div style="font-size: 12px; color: #6d7a72;">Personal Carbon Intelligence &amp; Multi-Objective Optimization</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <div class="ec-pill" style="padding: 6px 12px; font-size: 13px; font-weight: 700;">
+                👤 {username}
+            </div>
+            <div class="ec-pill" style="padding: 6px 12px; font-size: 13px; font-weight: 700;">
+                📅 {days_count} Days Logged
+            </div>
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: #006948; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">
+                {avatar_text}
+            </div>
         </div>
     </div>
-    <div style="display: flex; align-items: center; gap: 14px;">
-        <div class="ec-pill" style="padding: 6px 12px; font-size: 13px; font-weight: 700;">
-            📅 {days_count} Days Logged
-        </div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #006948; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">
-            US
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+with logout_col:
+    st.markdown("<div style='height: 14px;'></div>", unsafe_allow_html=True)
+    if st.button("🚪 Logout", use_container_width=True):
+        st.session_state["user"] = None
+        st.rerun()
+
+st.markdown("<div style='height: 16px;'></div>", unsafe_allow_html=True)
 
 # ── Navigation Tabs ───────────────────────────────────────────────────────────
 tab_log, tab_dash, tab_pred = st.tabs(["📝 Log Data", "📊 Dashboard", "🔮 Prediction & Prevention"])
 
 # ==============================================================================
-# TAB 1: LOG DATA
+# TAB 1: LOG DATA (Live Reactivity without Form Barrier)
 # ==============================================================================
 with tab_log:
     # Header Banner
@@ -298,135 +402,146 @@ with tab_log:
     </div>
     """, unsafe_allow_html=True)
 
-    # Main Logger Form
+    # Main Logger
     st.markdown('<div class="headline" style="font-size: 20px; font-weight: 600; margin-bottom: 12px;">Daily Activity Logger</div>', unsafe_allow_html=True)
     
-    with st.form("daily_emission_form", clear_on_submit=False):
-        date_col1, date_col2 = st.columns([1, 1])
-        with date_col1:
-            st.markdown("<strong>📅 Activity Date (Today or Backfill)</strong>", unsafe_allow_html=True)
-            entry_date = st.date_input(
-                "Activity Date",
-                value=date.today(),
-                max_value=date.today(),
-                label_visibility="collapsed",
-                help="Select today or choose any past date if you missed logging earlier!",
-            )
-            entry_date_str = entry_date.isoformat()
-            
-        existing_for_date = db.get_entry_by_date(entry_date_str)
-        
-        with date_col2:
-            st.markdown("<div style='height: 6px;'></div>", unsafe_allow_html=True)
-            if existing_for_date:
-                st.warning(f"🔄 Entry already exists for **{entry_date_str}** ({existing_for_date['total_kg']:.2f} kg CO₂e). Saving will overwrite this day so you have one whole full row per day.", icon="⚠️")
-            elif entry_date == date.today():
-                st.info("📌 Logging new activity for **Today**", icon="ℹ️")
-            else:
-                st.info(f"🕒 Backfilling new activity for **{entry_date_str}**", icon="📅")
+    date_col1, date_col2 = st.columns([1, 1])
+    with date_col1:
+        st.markdown("<strong>📅 Activity Date (Today or Backfill)</strong>", unsafe_allow_html=True)
+        entry_date = st.date_input(
+            "Activity Date",
+            value=date.today(),
+            max_value=date.today(),
+            label_visibility="collapsed",
+            help="Select today or choose any past date if you missed logging earlier!",
+            key="activity_date_selector",
+        )
+        entry_date_str = entry_date.isoformat()
 
+    existing_for_date = db.get_entry_by_date(user_id, entry_date_str)
+
+    with date_col2:
         st.markdown("<div style='height: 6px;'></div>", unsafe_allow_html=True)
-        col1, col2 = st.columns(2)
+        if existing_for_date:
+            st.warning(f"🔄 Entry already exists for **{entry_date_str}** ({existing_for_date['total_kg']:.2f} kg CO₂e). Saving will overwrite this day so you have one whole full row per day.", icon="⚠️")
+        elif entry_date == date.today():
+            st.info("📌 Logging new activity for **Today**", icon="ℹ️")
+        else:
+            st.info(f"🕒 Backfilling new activity for **{entry_date_str}**", icon="📅")
+
+    st.markdown("<div style='height: 6px;'></div>", unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("<strong>🚗 Mobility & Commute</strong>", unsafe_allow_html=True)
+        default_km = float(existing_for_date["commute_km"]) if existing_for_date else 12.5
+        commute_km = st.number_input(
+            "Commute Distance (km)",
+            min_value=0.0,
+            max_value=1000.0,
+            value=default_km,
+            step=0.5,
+            help="Total travel to/from work, study, or errands today.",
+            key=f"commute_km_{entry_date_str}",
+        )
+
+        commute_modes = ["car", "public_transit", "bike", "walk"]
+        default_mode_idx = commute_modes.index(existing_for_date["commute_mode"]) if existing_for_date and existing_for_date["commute_mode"] in commute_modes else 0
+        commute_mode = st.selectbox(
+            "Commute Mode",
+            options=commute_modes,
+            index=default_mode_idx,
+            format_func=lambda x: {
+                "car": "Gasoline/Diesel Car [0.17 kg CO₂/km]",
+                "public_transit": "Public Transit (Bus/Train) [0.089 kg CO₂/km]",
+                "bike": "Bicycle (Zero Emission) [0.00 kg CO₂/km]",
+                "walk": "Walking (Zero Emission) [0.00 kg CO₂/km]",
+            }[x],
+            key=f"commute_mode_{entry_date_str}",
+        )
+
+    with col2:
+        st.markdown("<strong>🍽️ Diet & Daily Electricity</strong>", unsafe_allow_html=True)
+        diet_types = ["meat_heavy", "vegetarian", "vegan"]
+        default_diet_idx = diet_types.index(existing_for_date["diet_type"]) if existing_for_date and existing_for_date["diet_type"] in diet_types else 0
+        diet_type = st.selectbox(
+            "Primary Diet Type Today",
+            options=diet_types,
+            index=default_diet_idx,
+            format_func=lambda x: {
+                "meat_heavy": "Meat-Heavy Meal Plan [3.30 kg CO₂/day]",
+                "vegetarian": "Vegetarian Meal Plan [1.70 kg CO₂/day]",
+                "vegan": "Vegan Low-Carbon Plan [1.10 kg CO₂/day]",
+            }[x],
+            key=f"diet_type_{entry_date_str}",
+        )
         
-        with col1:
-            st.markdown("<strong>🚗 Mobility & Commute</strong>", unsafe_allow_html=True)
-            commute_km = st.number_input(
-                "Commute Distance (km)",
-                min_value=0.0,
-                max_value=1000.0,
-                value=float(existing_for_date["commute_km"]) if existing_for_date else 12.5,
-                step=0.5,
-                help="Total travel to/from work, study, or errands today.",
-            )
-            
-            commute_mode = st.selectbox(
-                "Commute Mode",
-                options=["car", "public_transit", "bike", "walk"],
-                index=["car", "public_transit", "bike", "walk"].index(existing_for_date["commute_mode"]) if existing_for_date and existing_for_date["commute_mode"] in ["car", "public_transit", "bike", "walk"] else 0,
-                format_func=lambda x: {
-                    "car": "Gasoline/Diesel Car [0.17 kg CO₂/km]",
-                    "public_transit": "Public Transit (Bus/Train) [0.089 kg CO₂/km]",
-                    "bike": "Bicycle (Zero Emission) [0.00 kg CO₂/km]",
-                    "walk": "Walking (Zero Emission) [0.00 kg CO₂/km]",
-                }[x],
-            )
-            
-        with col2:
-            st.markdown("<strong>🍽️ Diet & Daily Electricity</strong>", unsafe_allow_html=True)
-            diet_type = st.selectbox(
-                "Primary Diet Type Today",
-                options=["meat_heavy", "vegetarian", "vegan"],
-                index=["meat_heavy", "vegetarian", "vegan"].index(existing_for_date["diet_type"]) if existing_for_date and existing_for_date["diet_type"] in ["meat_heavy", "vegetarian", "vegan"] else 0,
-                format_func=lambda x: {
-                    "meat_heavy": "Meat-Heavy Meal Plan [3.30 kg CO₂/day]",
-                    "vegetarian": "Vegetarian Meal Plan [1.70 kg CO₂/day]",
-                    "vegan": "Vegan Low-Carbon Plan [1.10 kg CO₂/day]",
-                }[x],
-            )
-            
-            active_hours = st.number_input(
-                "Daily Electricity Usage (kWh)",
-                min_value=0.0,
-                max_value=200.0,
-                value=float(existing_for_date["active_hours"]) if existing_for_date else 5.0,
-                step=0.5,
-                help="Your daily household electricity in kWh. Check your meter or divide monthly bill units by 30. (0.82 kg CO₂/kWh India grid)",
-            )
-            
-        st.markdown("<div style='height: 8px;'></div>", unsafe_allow_html=True)
-        
-        # Interactive Real-Time Arithmetic Summary within the Form
-        c_commute = calc.calc_commute_kg(commute_km, commute_mode)
-        c_diet = calc.calc_diet_kg(diet_type)
-        c_elec = calc.calc_electricity_kg(active_hours)
-        c_tot = calc.calc_total_kg(commute_km, commute_mode, diet_type, active_hours)
-        
-        st.markdown(f"""
-        <div style="background: var(--surface-low); border-radius: 10px; padding: 12px 16px; margin-bottom: 16px;">
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center;">
-                <div>
-                    <div class="metric-label">Mobility</div>
-                    <div class="mono" style="font-weight: 600;">{c_commute:.3f} kg</div>
-                </div>
-                <div>
-                    <div class="metric-label">Diet</div>
-                    <div class="mono" style="font-weight: 600;">{c_diet:.3f} kg</div>
-                </div>
-                <div>
-                    <div class="metric-label">Electricity</div>
-                    <div class="mono" style="font-weight: 600;">{c_elec:.3f} kg</div>
-                </div>
-                <div style="border-left: 2px solid var(--outline-variant);">
-                    <div class="metric-label" style="color: var(--primary);">Est. Total</div>
-                    <div class="mono" style="font-weight: 700; color: var(--primary);">{c_tot:.3f} kg</div>
-                </div>
+        default_elec = float(existing_for_date["active_hours"]) if existing_for_date else 5.0
+        active_hours = st.number_input(
+            "Daily Electricity Usage (kWh)",
+            min_value=0.0,
+            max_value=200.0,
+            value=default_elec,
+            step=0.5,
+            help="Your daily household electricity in kWh. Check your meter or divide monthly bill units by 30. (0.82 kg CO₂/kWh India grid)",
+            key=f"active_hours_{entry_date_str}",
+        )
+
+    st.markdown("<div style='height: 8px;'></div>", unsafe_allow_html=True)
+
+    # Real-Time Arithmetic Summary
+    c_commute = calc.calc_commute_kg(commute_km, commute_mode)
+    c_diet = calc.calc_diet_kg(diet_type)
+    c_elec = calc.calc_electricity_kg(active_hours)
+    c_tot = calc.calc_total_kg(commute_km, commute_mode, diet_type, active_hours)
+
+    st.markdown(f"""
+    <div style="background: var(--surface-low); border-radius: 10px; padding: 12px 16px; margin-bottom: 16px;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center;">
+            <div>
+                <div class="metric-label">Mobility</div>
+                <div class="mono" style="font-weight: 600;">{c_commute:.3f} kg</div>
+            </div>
+            <div>
+                <div class="metric-label">Diet</div>
+                <div class="mono" style="font-weight: 600;">{c_diet:.3f} kg</div>
+            </div>
+            <div>
+                <div class="metric-label">Electricity</div>
+                <div class="mono" style="font-weight: 600;">{c_elec:.3f} kg</div>
+            </div>
+            <div style="border-left: 2px solid var(--outline-variant);">
+                <div class="metric-label" style="color: var(--primary);">Est. Total</div>
+                <div class="mono" style="font-weight: 700; color: var(--primary);">{c_tot:.3f} kg</div>
             </div>
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
 
-        btn_label = "💾 Update Day's Entry (1 Row Per Day)" if existing_for_date else "💾 Save Activity Entry"
-        submitted = st.form_submit_button(btn_label, use_container_width=True)
-        
-        if submitted:
-            success = db.upsert_entry(
-                date=entry_date_str,
-                commute_km=commute_km,
-                commute_mode=commute_mode,
-                diet_type=diet_type,
-                active_hours=active_hours,
-                total_kg=c_tot,
-            )
-            if success:
-                st.success(f"✅ Activity recorded successfully! Updated one full row for {entry_date_str} with {c_tot:.3f} kg CO₂e.")
-                # Send optional system desktop toast
-                notify.send_toast("EcoTrace AI Entry Saved", f"Saved {c_tot:.2f} kg CO2e for {entry_date_str}.")
-                st.rerun()
-            else:
-                st.error("Failed to save log entry to SQLite database.")
+    btn_label = "💾 Update Day's Entry (1 Row Per Day)" if existing_for_date else "💾 Save Activity Entry"
+    submitted = st.button(btn_label, type="primary", use_container_width=True)
+
+    if submitted:
+        success = db.upsert_entry(
+            user_id=user_id,
+            date=entry_date_str,
+            commute_km=commute_km,
+            commute_mode=commute_mode,
+            diet_type=diet_type,
+            active_hours=active_hours,
+            total_kg=c_tot,
+        )
+        if success:
+            st.toast(f"✅ Saved {c_tot:.2f} kg CO₂e for {entry_date_str}", icon="🌱")
+            notify.send_toast("EcoTrace AI Entry Saved", f"Saved {c_tot:.2f} kg CO2e for {entry_date_str}.")
+            st.success(f"✅ Activity recorded successfully! Updated one full row for {entry_date_str} with {c_tot:.3f} kg CO₂e.")
+            st.rerun()
+        else:
+            st.error("Failed to save log entry to SQLite database.")
 
     # Recent Submissions History
     st.markdown('<div class="headline" style="font-size: 18px; font-weight: 600; margin: 28px 0 12px 0;">Recent Submissions Log</div>', unsafe_allow_html=True)
-    all_entries = db.get_all_entries()
+    all_entries = db.get_all_entries(user_id)
     if all_entries:
         df_entries = pd.DataFrame(all_entries)
         display_df = df_entries[['id', 'date', 'commute_km', 'commute_mode', 'diet_type', 'active_hours', 'total_kg']].copy()
@@ -446,7 +561,8 @@ with tab_log:
                 st.markdown("<div style='height: 28px;'></div>", unsafe_allow_html=True)
                 if st.button("🗑️ Delete Row", type="primary", use_container_width=True):
                     target_id = del_options[selected_del_label]
-                    if db.delete_entry(target_id):
+                    if db.delete_entry(user_id, target_id):
+                        st.toast(f"Row #{target_id} deleted", icon="🗑️")
                         st.success(f"✅ Row #{target_id} permanently deleted.")
                         st.rerun()
                     else:
@@ -463,7 +579,7 @@ with tab_dash:
     st.markdown('<div style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 20px;">Continuous multi-source telemetry and empirical baseline analytics</div>', unsafe_allow_html=True)
 
     # 3 Hero Metric Cards
-    last_7 = db.get_last_n_days(7)
+    last_7 = db.get_last_n_days(user_id, 7)
     weekly_total = sum(r["total_kg"] for r in last_7) if last_7 else 0.0
     weekly_budget = 35.0  # standard 5kg/day budget
     consumed_pct = min(int((weekly_total / weekly_budget) * 100), 100) if weekly_budget > 0 else 0
@@ -552,7 +668,7 @@ with tab_dash:
         
         with col_pie:
             st.markdown('<div class="headline" style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">🍩 Today\'s Source Breakdown</div>', unsafe_allow_html=True)
-            breakdown = db.get_today_breakdown()
+            breakdown = db.get_today_breakdown(user_id)
             
             # If today has no entries, aggregate last 7 days for the pie chart
             if sum(breakdown.values()) == 0 and last_7:
@@ -650,7 +766,7 @@ with tab_pred:
         
     else:
         # 7+ Days: Train & Infer Model
-        entries = db.get_all_entries()
+        entries = db.get_all_entries(user_id)
         df_raw = pd.DataFrame(entries)
         # Aggregate strictly to 1 row per date, sorted chronologically
         df_hist = df_raw.groupby("date", as_index=False)["total_kg"].sum().sort_values("date").reset_index(drop=True)
@@ -847,11 +963,13 @@ with tab_pred:
             report_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             report_text = f"""================================================================================
 ECOTRACE AI — OFFICIAL CARBON INTELLIGENCE & PREVENTION REPORT
-Generated: {report_timestamp}
+User Profile : {username} (ID: #{user_id})
+Generated    : {report_timestamp}
 ================================================================================
 
 1. TELEMETRY & BASELINE DATA
 --------------------------------------------------------------------------------
+* User Account             : {username}
 * Total Observational Days : {days_count} days
 * 7-Day Empirical Baseline : {rolling_avg:.2f} kg CO2e / day
 * Sustainable Ceiling (1.2x): {target_budget:.2f} kg CO2e / day
@@ -860,6 +978,7 @@ Generated: {report_timestamp}
 2. MACHINE LEARNING PREDICTIVE FORECAST
 --------------------------------------------------------------------------------
 * Model Type               : RandomForestRegressor (Scikit-Learn)
+* Regularization Tuning    : max_depth=4, min_samples_leaf=2, calendar-continuous
 * Forecast Window          : Next 24 Hours
 * Forecasted Emission      : {predicted_val:.2f} kg CO2e
 * Risk Assessment Level    : {'HIGH RISK (Threshold Exceeded)' if is_breached else 'NORMAL RISK (Within Budget)'}
@@ -896,7 +1015,7 @@ Report validated against UK DEFRA 2023, India CEA v19, and IPCC AR6 benchmarks.
                 st.download_button(
                     label="📥 Download Carbon Report (.txt)",
                     data=report_text,
-                    file_name=f"EcoTrace_Carbon_Report_{datetime.now().strftime('%Y%m%d')}.txt",
+                    file_name=f"EcoTrace_Carbon_Report_{username}_{datetime.now().strftime('%Y%m%d')}.txt",
                     mime="text/plain",
                     use_container_width=True,
                 )

@@ -1,6 +1,6 @@
 """
 model.py — ML prediction layer for EcoTrace AI.
-Trains a RandomForestRegressor on historical daily totals.
+Trains a RandomForestRegressor on historical daily totals with calendar-continuous lag features.
 Returns None when fewer than 7 days of data are available.
 """
 
@@ -8,6 +8,7 @@ from __future__ import annotations
 import pandas as pd
 import numpy as np
 import streamlit as st
+
 
 # TESTED: returns (None, None) when df has fewer than 7 rows; never raises
 @st.cache_data
@@ -38,14 +39,30 @@ def train_model(df: pd.DataFrame) -> tuple[object, float] | tuple[None, None]:
         if len(df) < 7:
             return None, None
 
-        df["lag1"] = df["total_kg"].shift(1)
-        df["lag2"] = df["total_kg"].shift(2)
-        df["lag3"] = df["total_kg"].shift(3)
-        df["roll3"] = df["total_kg"].rolling(3).mean()
-        df["dow"]  = df["date_parsed"].dt.dayofweek
+        # Reindex over continuous daily date range and interpolate missing days up to 3 days
+        min_date = df["date_parsed"].min()
+        max_date = df["date_parsed"].max()
+        full_idx = pd.date_range(min_date, max_date, freq="D", name="date_parsed")
+
+        df_cont = (
+            df.set_index("date_parsed")[["total_kg"]]
+            .reindex(full_idx)
+            .interpolate(method="linear", limit=3)
+            .reset_index()
+        )
+        df_cont = df_cont.dropna(subset=["total_kg"])
+
+        if len(df_cont) < 7:
+            return None, None
+
+        df_cont["lag1"] = df_cont["total_kg"].shift(1)
+        df_cont["lag2"] = df_cont["total_kg"].shift(2)
+        df_cont["lag3"] = df_cont["total_kg"].shift(3)
+        df_cont["roll3"] = df_cont["total_kg"].rolling(3).mean()
+        df_cont["dow"]  = df_cont["date_parsed"].dt.dayofweek
 
         # Drop rows that have NaN due to shifts
-        df_model = df.dropna(subset=["lag1", "lag2", "lag3", "roll3"])
+        df_model = df_cont.dropna(subset=["lag1", "lag2", "lag3", "roll3"])
 
         if len(df_model) < 3:
             return None, None
@@ -54,12 +71,18 @@ def train_model(df: pd.DataFrame) -> tuple[object, float] | tuple[None, None]:
         X = df_model[feature_cols].values
         y = df_model["total_kg"].values
 
-        model = RandomForestRegressor(n_estimators=100, random_state=42)
+        # Regularize regressor to prevent extreme overfitting on small datasets
+        model = RandomForestRegressor(
+            n_estimators=100,
+            max_depth=4,
+            min_samples_leaf=2,
+            random_state=42,
+        )
         model.fit(X, y)
 
         # Predict tomorrow using latest available data
-        last_row = df.iloc[-1]
-        last3 = df["total_kg"].iloc[-3:].values
+        last_row = df_cont.iloc[-1]
+        last3 = df_cont["total_kg"].iloc[-3:].values
         lag1  = float(last3[-1]) if len(last3) >= 1 else 0.0
         lag2  = float(last3[-2]) if len(last3) >= 2 else lag1
         lag3  = float(last3[-3]) if len(last3) >= 3 else lag2
